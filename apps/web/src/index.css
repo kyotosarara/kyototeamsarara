@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;800&display=swap');
+@import 'react-quill/dist/quill.snow.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 98%;
+    --foreground: 20 14.3% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 14.3% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14.3% 4.1%;
+    
+    /* Gold/Amber Theme */
+    --primary: 45 93% 47%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 24 95% 53%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --muted: 40 20% 90%;
+    --muted-foreground: 25 5.3% 44.7%;
+    
+    --accent: 45 93% 90%;
+    --accent-foreground: 45 93% 30%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 40 20% 85%;
+    --input: 40 20% 85%;
+    --ring: 45 93% 47%;
+    --radius: 1rem;
+    
+    /* Semantic/Feature Tokens */
+    --calendar-practice: 217 91% 60%;
+    --calendar-festival: 348 83% 47%;
+    --budget-income: 142 71% 45%;
+    --budget-expense: 0 84.2% 60.2%;
+    --budget-pending: 45 93% 47%;
+    --eq-good: 142 71% 45%;
+    --eq-repair: 45 93% 47%;
+    --eq-damaged: 0 84.2% 60.2%;
+
+    /* VLOG Content Type Tokens */
+    --vlog-video: 217 91% 60%;
+    --vlog-photo: 142 71% 45%;
+    --vlog-text: 270 70% 60%;
+  }
+
+  .dark {
+    --background: 20 14.3% 4.1%;
+    --foreground: 60 9.1% 97.8%;
+    --card: 24 10% 10%;
+    --card-foreground: 60 9.1% 97.8%;
+    --popover: 24 10% 10%;
+    --popover-foreground: 60 9.1% 97.8%;
+    
+    --primary: 45 93% 47%;
+    --primary-foreground: 26 83.3% 14.1%;
+    
+    --secondary: 24 95% 53%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --muted: 24 10% 15%;
+    --muted-foreground: 24 5.4% 63.9%;
+    
+    --accent: 45 93% 20%;
+    --accent-foreground: 45 93% 80%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    
+    --border: 24 10% 15%;
+    --input: 24 10% 15%;
+    --ring: 45 93% 47%;
+
+    /* VLOG Content Type Tokens */
+    --vlog-video: 217 91% 60%;
+    --vlog-photo: 142 71% 45%;
+    --vlog-text: 270 70% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Outfit", "Noto Sans JP", sans-serif;
+    overflow-x: clip;
+    font-feature-settings: "kern" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+    @apply tracking-tight;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .glass-panel {
+    @apply bg-background/80 backdrop-blur-md border border-border/50 shadow-sm;
+  }
+  .vlog-badge-video {
+    @apply bg-[hsl(var(--vlog-video))] text-white;
+  }
+  .vlog-badge-photo {
+    @apply bg-[hsl(var(--vlog-photo))] text-white;
+  }
+  .vlog-badge-text {
+    @apply bg-[hsl(var(--vlog-text))] text-white;
+  }
+}
+
+/* Rich Text Editor Overrides */
+.ql-container {
+  @apply font-sans text-base rounded-b-2xl border-border !important;
+  font-family: inherit !important;
+}
+.ql-toolbar {
+  @apply rounded-t-2xl border-border bg-muted/30 !important;
+  border-bottom: none !important;
+}
+.ql-editor {
+  @apply min-h-[250px] text-foreground p-6 !important;
+}
